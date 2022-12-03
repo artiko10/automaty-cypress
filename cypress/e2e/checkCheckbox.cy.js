@@ -18,14 +18,41 @@ describe('check checkbox', () => {
 
       it('find which chebox is selected', () => {
    
-        cy.get('.p-5 > :nth-child(5) > .form-check-input').invoke("prop", "checked").then(option1 => {
+        cy.get('[data-cy="Option1Checkbox"]').invoke("prop", "checked").then(option1 => {
           cy.log(option1)
           expect(option1).to.be.true
 
         })
-        cy.get('.p-5 > :nth-child(6) > .form-check-input').invoke("prop", "checked").then(option2 => {
+        cy.get('[data-cy="Chekboxs task 2"] > :nth-child(2)').invoke("prop", "checked").then(option2 => {
             cy.log(option2)
         })
         
+      })
+
+      it('Find the bug', () => {
+   
+        cy.get('[data-cy="YesCheckbox"]').check().invoke("prop", "checked").then(yes => {
+          cy.log(yes)
+         })
+         cy.get('[data-cy="NoCheckbox"]').check().invoke("prop", "checked").then(no => {
+          cy.log(no)
+          })
+      
+      })
+
+      it('Confirm last field is disabled', () => {
+        cy.get('[data-cy="CheckboxOne"]').check()
+        cy.get('[data-cy="CheckboxTwo"]').check()
+        cy.get('[data-cy="CheckboxThree"]').should('be.disabled')
+       
+      })
+
+      it('Confirm that all options are selected', () => {
+        cy.get('[data-cy="Chekboxs task 5"]').find("input").check();
+        cy.get('[data-cy="Chekboxs task 5"]').find("input").should('be.checked');
+        cy.get('[data-cy="Chekboxs task 5"] > :nth-child(1) > .form-check-input').uncheck();
+        cy.get('[data-cy="Chekboxs task 5"]').find("input").should('not.be.checked');
+        cy.get('[data-cy="Chekboxs task 5"] > :nth-child(1) > .form-check-input').check();
+        cy.get('[data-cy="Chekboxs task 5"]').find("input").should('be.checked');
       })
 })

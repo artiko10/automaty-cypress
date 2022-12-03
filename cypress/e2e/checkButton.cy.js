@@ -38,4 +38,13 @@ describe('check buttons', () => {
     cy.get('[aria-controls="example-fade-text"]').click()
     cy.get('#example-fade-text').should('have.text', 'Congratulations, you have successfully clicked the button!')
   })
+
+  it('change color of the button', () => {
+    cy.get('.toggle--button').click()
+    cy.get('.toggle--button').invoke('css', 'background-color').then(changecolor => {
+      cy.log(changecolor)
+      cy.get('.toggle--button').should('have.css', 'background-color', 'rgb(23, 7, 248)')
+     
+    })
+  })
 })
