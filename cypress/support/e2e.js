@@ -18,3 +18,7 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+require("cypress-plugin-tab")
+require('@4tw/cypress-drag-drop')
+
+import 'cypress-file-upload';

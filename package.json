@@ -18,6 +18,12 @@
   },
   "homepage": "https://github.com/artiko10/automaty-cypress#readme",
   "dependencies": {
+    "clipboardy": "^3.0.0",
     "cypress": "^11.2.0"
+  },
+  "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.2.2",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-plugin-tab": "^1.0.5"
   }
 }
