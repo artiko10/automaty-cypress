@@ -2,7 +2,7 @@ describe('check calendar', () => {
 
     beforeEach(() => {
         cy.visit('http://localhost:3000/')
-        cy.get('[href="/table"]').click()
+        cy.get('[href="/calendar"]').click()
       })
     
       it('Select range from your birthday to chrismas using dropdowns', () => {
