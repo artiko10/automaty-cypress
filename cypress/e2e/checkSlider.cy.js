@@ -6,8 +6,8 @@ describe('check Upload', () => {
       })
     
       it('Upload file', () => {
-        cy.get('.p-5 > div > input').invoke("val", "70").trigger("change");
-        cy.get('.p-5 > div > :nth-child(2)').should("have.text", 70);
+        cy.get('#SliderGrade').invoke("val", "70").trigger("change");
+        cy.get('#SliderData').should("have.text", 70);
 
        
 
