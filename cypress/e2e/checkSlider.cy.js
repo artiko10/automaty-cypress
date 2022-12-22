@@ -6,7 +6,9 @@ describe('check Upload', () => {
       })
     
       it('Upload file', () => {
-        cy.get('.MuiSlider-sizeSmall > .MuiSlider-thumb').invoke("attr", "style", "left: 80%");
+        cy.get('#root > div > section > div:nth-child(1) > div > div.col-sm-7 > div > div.MuiBox-root.css-1v5z18m > span.MuiSlider-root.MuiSlider-colorPrimary.MuiSlider-sizeSmall.css-53tbrc-MuiSlider-root > span.MuiSlider-track.css-1n40zqk-MuiSlider-track').invoke("attr", "style", "width: 20%");
+        cy.get('.MuiSlider-sizeSmall > .MuiSlider-thumb').invoke("attr", "style", "left: 20%");
+        cy.get('.MuiSlider-sizeSmall > .MuiSlider-thumb').invoke("attr", "style", "left: 20%").click()
       
 
        
