@@ -6,8 +6,8 @@ describe('check Upload', () => {
       })
     
       it('Upload file', () => {
-        cy.get('#SliderGrade').invoke("val", "100").trigger("change");
-        cy.get('#SliderData').should("have.text", 70);
+        cy.get('.MuiSlider-sizeSmall > .MuiSlider-thumb').invoke("attr", "style", "left: 80%");
+      
 
        
 
