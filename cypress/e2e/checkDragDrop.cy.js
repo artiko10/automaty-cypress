@@ -5,17 +5,20 @@ describe('check dragDrop', () => {
         cy.get('[href="/drag"]').click()
       })
     
-      it('Enter your name and press TAB', () => {
-     //   cy.get('.p-3 > :nth-child(2)').drag('.p-3 > :nth-child(3)')
-       const dataTransfer = new DataTransfer();
-      // cy.get(':nth-child(2) > .m-3 > .card-body').drag(":nth-child(3) > .m-3 > .card-body")
-      cy.get('.p-3 > :nth-child(2)').trigger("dragstart", { dataTransfer });
-      cy.get('.p-3 > :nth-child(5)').trigger("dragover");
-      cy.get('.p-3 > :nth-child(5)').trigger("drop", { dataTransfer });
-      cy.get('.p-3 > :nth-child(2)').trigger("dragend");
-     // dndNative(":nth-child(2) > .m-3 > .card-body", ":nth-child(3) > .m-3 > .card-body", true);
+     
+      it('Add new task and drag them', () => {
 
-       
+      for (let i=1; i<10; i++){
+     cy.get('.inputAddTask').type('new task ' + i)
+     cy.get('.addTaskButton').click()
+     cy.get('.inputAddTask').clear()
+      }
+       const dataTransfer = new DataTransfer();
+      cy.get('.TaskDisplayContainer > :nth-child(3)').trigger("dragstart", { dataTransfer });
+      cy.get('.TaskDisplayContainer > :nth-child(1)').trigger("dragover");
+      cy.get('.TaskDisplayContainer > :nth-child(1)').trigger("drop", { dataTransfer });
+      cy.get('.TaskDisplayContainer > :nth-child(3)').trigger("dragend");
+     
 
       });
 
