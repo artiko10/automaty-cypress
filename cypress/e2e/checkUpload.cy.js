@@ -13,9 +13,24 @@ describe('check Upload', () => {
       });
 
       it('Downolad file', () => {
-        cy.get('a > .btn').click()
-       
+      //  cy.get('a > .btn').click()
+        cy.downloadFile('https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg','mydownloads','example.jpg')
+        .then(() => {
+          cy.task("getImageText", {
+            fileName: "./mydownoloads/example.jpg",
+            lang: "eng",
+            logger: false,
+          }).then((text) => {
+            expect(text).tocontains("This is an example image")
+          });
+        });
 
       });
+
+      // it('print file', () => {
+      //   cy.get('.print__button').click()
+       
+
+      // });
 
     });

@@ -14,11 +14,10 @@ describe('check dragDrop', () => {
      cy.get('.inputAddTask').clear()
       }
        const dataTransfer = new DataTransfer();
-      cy.get('.TaskDisplayContainer > :nth-child(3)').trigger("dragstart", { dataTransfer });
-      cy.get('.TaskDisplayContainer > :nth-child(1)').trigger("dragover");
-      cy.get('.TaskDisplayContainer > :nth-child(1)').trigger("drop", { dataTransfer });
-      cy.get('.TaskDisplayContainer > :nth-child(3)').trigger("dragend");
-     
+       for (let i=1; i<10; i++){
+        cy.get('.TaskDisplayContainer > :nth-child(' + (i+2) + ')').trigger("dragstart", { dataTransfer });
+        cy.get('.TaskDisplayContainer > :nth-child(' + (i) + ')').trigger("dragend");
+       }
 
       });
 
