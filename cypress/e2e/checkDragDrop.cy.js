@@ -1,3 +1,5 @@
+import DragDropPage from "./pages/DragDropPage";
+
 describe('check dragDrop', () => {
 
     beforeEach(() => {
@@ -8,17 +10,15 @@ describe('check dragDrop', () => {
      
       it('Add new task and drag them', () => {
 
-      for (let i=1; i<10; i++){
-     cy.get('.inputAddTask').type('new task ' + i)
-     cy.get('.addTaskButton').click()
-     cy.get('.inputAddTask').clear()
-      }
-       const dataTransfer = new DataTransfer();
-       for (let i=1; i<10; i++){
-        cy.get('.TaskDisplayContainer > :nth-child(' + (i+2) + ')').trigger("dragstart", { dataTransfer });
-        cy.get('.TaskDisplayContainer > :nth-child(' + (i) + ')').trigger("dragend");
-       }
+        DragDropPage.AddNewTasks()
+        DragDropPage.DragNewTasks()
+       
 
       });
+
+      it('Add new tasks and delete them', () => {
+        DragDropPage.AddNewTasks()
+        DragDropPage.DeleteTasks()
+      })
 
     })
