@@ -1,50 +1,46 @@
+import buttonPage from "./pages/buttonPage";
+
 describe('check buttons', () => {
 
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
-    cy.get('[href="/button"]').click()
+    buttonPage.clickNavButton()
   })
 
   it('open popup', () => {
-   
-    cy.get('.btn-danger').click()
-    cy.get('.modal-title').should("contain", "Example popup");
-    cy.get('.modal-footer > .btn').click()
+    buttonPage.clickOnBtnOpenPopup();
+    buttonPage.elements.textOnPopup().should("contain", "Example popup");
+    buttonPage.clickOnBtnConfirmPopup();
   })
 
   it('check tooltip', () => {
-    cy.get('.p-5 > :nth-child(5)').trigger('mouseover')
-    cy.get('.tooltip-inner').should("contain", "This is tooltip")
+    buttonPage.hoverOnTooltipBtn();
+    buttonPage.elements.textOnTooltip().should("contain", "This is tooltip")
   })
 
   it('check color button', () => {
-    cy.get('.btn-primary').invoke('css', 'background-color').then(color => {
-      cy.log(color)
-      cy.get('.btn-primary').should('have.css', 'background-color', 'rgb(13, 110, 253)')
-    })
+    buttonPage.checkColorBtn();
+    buttonPage.elements.btnCheckColor().should('have.css', 'background-color', 'rgb(13, 110, 253)')
+    
   })
 
   it('check button is disabled', () => {
-  cy.get('#root > div > section > div:nth-child(1) > div > div.col-sm-7 > div > button.btn.btn-lg.btn-warning').should('be.disabled')
+    buttonPage.elements.btnDisabled().should('be.disabled')
   })
 
   it('click go to home and come back', () => {
-    cy.get('.btn-secondary').click()
+    buttonPage.clickOnButtonGoToHome()
     cy.url().should('eq', 'http://localhost:3000/' )
-    cy.get('[href="/button"]').click()
+    buttonPage.clickNavButton()
   })
 
   it('click button and check message', () => {
-    cy.get('[aria-controls="example-fade-text"]').click()
-    cy.get('#example-fade-text').should('have.text', 'Congratulations, you have successfully clicked the button!')
+   buttonPage.clickMessageButton()
+    buttonPage.elements.textMessage().should('have.text', 'Congratulations, you have successfully clicked the button!')
   })
 
   it('change color of the button', () => {
-    cy.get('.toggle--button').click()
-    cy.get('.toggle--button').invoke('css', 'background-color').then(changecolor => {
-      cy.log(changecolor)
-      cy.get('.toggle--button').should('have.css', 'background-color', 'rgb(23, 7, 248)')
-     
-    })
+   buttonPage.changeColorButton()
+      buttonPage.elements.btnChangeColor().should('have.css', 'background-color', 'rgb(23, 7, 248)')  
   })
 })
