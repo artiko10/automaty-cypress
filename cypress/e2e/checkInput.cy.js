@@ -1,5 +1,5 @@
 import inputPage from "./pages/inputPage";
-import formsPage from "./pages/inputPage";
+
 
 describe('check input', () => {
 
