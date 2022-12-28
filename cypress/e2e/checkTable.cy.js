@@ -1,3 +1,5 @@
+import tablePage from "./pages/tablePage";
+
 describe('check table', () => {
 
 const tableHeader = [
@@ -63,8 +65,7 @@ const tableDataSortedAsc= [
       });
     
       it('should verify table data loads', () => {
-        cy.get('#MyTable>tbody>tr').should('have.length', 10)
-        cy.get('#MyTable>tbody>tr:eq(0)>td').should('have.length', 5)
+        tablePage.VerifyDataLoads()
 
         cy.get('#MyTable>tbody>tr').each(function($row, index, $rows){
           cy.wrap($row).within(function(){
@@ -76,17 +77,11 @@ const tableDataSortedAsc= [
       })
 
       it('get single row data', () => {
-        cy.get('#MyTable>tbody>tr').eq(2).within(function(){
-          cy.get('td').eq(3).should('contain.text', 'Purple')
-        })
+       tablePage.GetSingleRow()
       })
 
       it('get cell', () => {
-        cy.get('#MyTable').contains('Gaspard').parent().within(function(){
-          cy.get('td').eq(4).then(function(websiteLink){
-            cy.log(websiteLink.text())
-          })
-        })
+        tablePage.GetCell()
       })
 
     })
