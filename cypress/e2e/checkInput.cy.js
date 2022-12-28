@@ -1,3 +1,6 @@
+import inputPage from "./pages/inputPage";
+import formsPage from "./pages/inputPage";
+
 describe('check input', () => {
 
     beforeEach(() => {
@@ -6,26 +9,19 @@ describe('check input', () => {
       })
     
       it('Enter your name and press TAB', () => {
-        cy.get('#formBasicEmail').type('Artur').invoke("prop", "value").then(imie => {
-          expect(imie).to.contain("Artur")
-        })
-        cy.tab()
+        inputPage.EnterNameAndPressTab("Tadeusz")
        
       })
 
       it('Copy the text from input', () => {
-        cy.get(':nth-child(3) > .form-control').invoke("prop", "value").then(wartosc => {
-          cy.log("Skopiowana wartość: " + wartosc)
-        })
+       inputPage.VerifyTextFromInput()
       })
 
       it('Enter the password and clear it', () => {
-        cy.get('#formBasicPassword').type('Qwerty123').clear().invoke("prop", "value").then(clearpass => {
-          expect(clearpass).to.contain("")
-        })
+       inputPage.EnterPasswordAndClearIt('qwerty123')
       })
 
       it('Check if the field is disabled', () => {
-        cy.get(':nth-child(7) > .form-control').should('be.disabled')
+       inputPage.VerifyInputisDisabled()
         })
       })
