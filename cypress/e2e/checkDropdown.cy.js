@@ -1,3 +1,5 @@
+import dropdownPage from "./pages/dropdownPage";
+
 describe('check dropdown', () => {
 
     beforeEach(() => {
@@ -6,11 +8,7 @@ describe('check dropdown', () => {
       })
     
       it('select all option and get text', () => {
-        cy.get('select').then(select => {
-          cy.wrap(select).find("option").each(opcja => {
-            cy.wrap(select).select(opcja.text())
-          })
-        })
+        dropdownPage.SelectAllOption()
       })
 
       it('search for opction 1 and select', () => {
@@ -19,8 +17,6 @@ describe('check dropdown', () => {
       })
 
       it('chose one of the product', () => {
-        cy.get('#dropdown-menu-align-right').click()
-        cy.get('.dropdown-menu > :nth-child(4)').click()
-        cy.get('.text-warning').should("contain", "You selected: potato")
+       dropdownPage.ChooseOneProduct()
       })
     })
