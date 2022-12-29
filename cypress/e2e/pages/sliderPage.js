@@ -1,7 +1,7 @@
 class sliderPage {
 
     elements = {
-        SliderRange : () => cy.get('#root > div > section > div:nth-child(1) > div > div.col-sm-7 > div > div.MuiBox-root.css-1v5z18m > span.MuiSlider-root.MuiSlider-colorPrimary.MuiSlider-sizeSmall.css-53tbrc-MuiSlider-root > span.MuiSlider-track.css-1n40zqk-MuiSlider-track'),
+        SliderRange : () => cy.get('.css-1v5z18m > .MuiSlider-root'),
         SliderRangeDot : () => cy.get('.MuiSlider-sizeSmall > .MuiSlider-thumb'),
         SliderVolumeDot : () => cy.get('.css-1qx01vb-MuiStack-root > .MuiSlider-root > .MuiSlider-thumb'),
         LineSlider : () => cy.get('.css-1qx01vb-MuiStack-root > .MuiSlider-root > .MuiSlider-track'),
@@ -9,7 +9,6 @@ class sliderPage {
     }
 
     ChangeRangeToValue() {
-       this.elements.SliderRange().invoke("attr", "style", "width: 20%")
        this.elements.SliderRangeDot().invoke("attr", "style", "left: 20%")
        this.elements.SliderRangeDot().invoke("attr", "style", "left: 20%").click()
     }

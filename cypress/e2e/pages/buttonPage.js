@@ -12,7 +12,7 @@ elements ={
     btnChangeColor : () => cy.get('.toggle--button'),
     btnMessage : () => cy.get('[aria-controls="example-fade-text"]'),
     textMessage : () => cy.get('#example-fade-text'),
-    btnDisabled : () => cy.get('#root > div > section > div:nth-child(1) > div > div.col-sm-7 > div > button.btn.btn-lg.btn-warning')
+    btnDisabled : () => cy.get('[data-cy="DisabledButton"]')
 
 }   
 

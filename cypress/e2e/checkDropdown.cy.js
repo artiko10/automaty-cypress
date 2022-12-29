@@ -11,9 +11,8 @@ describe('check dropdown', () => {
         dropdownPage.SelectAllOption()
       })
 
-      it('search for opction 1 and select', () => {
-        // cy.get('.css-6j8wv5-Input').click()
-        // cy.get('#react-select-3-listbox').type('{downarrow}').type('{enter}')
+      it('search name and select', () => {
+       dropdownPage.SearchName()
       })
 
       it('chose one of the product', () => {

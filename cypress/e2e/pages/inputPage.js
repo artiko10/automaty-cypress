@@ -4,7 +4,7 @@ class InputPage {
         inputName : () => cy.get('#formBasicEmail'),
         inputToCopy : () => cy.get(':nth-child(3) > .form-control'),
         inputPasword : () => cy.get('#formBasicPassword'),
-        inputDisabled : () => cy.get(':nth-child(7) > .form-control')
+        inputDisabled : () => cy.get('.p-5 > :nth-child(5) > .form-control')
     }
 
     EnterNameAndPressTab(Name) {
