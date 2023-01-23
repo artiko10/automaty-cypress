@@ -3,8 +3,8 @@ class sliderPage {
     elements = {
         SliderRange : () => cy.get('.css-1v5z18m > .MuiSlider-root'),
         SliderRangeDot : () => cy.get('.MuiSlider-sizeSmall > .MuiSlider-thumb'),
-        SliderVolumeDot : () => cy.get('.css-1qx01vb-MuiStack-root > .MuiSlider-root > .MuiSlider-thumb'),
-        LineSlider : () => cy.get('.css-1qx01vb-MuiStack-root > .MuiSlider-root > .MuiSlider-track'),
+        SliderVolumeDot : () => cy.get('.css-e53awj-MuiStack-root > .MuiSlider-root > .MuiSlider-thumb'),
+        LineSlider : () => cy.get('.css-e53awj-MuiStack-root > .MuiSlider-root > .MuiSlider-track'),
         DisabledSlider : () => cy.get('#disabledRange')
     }
 

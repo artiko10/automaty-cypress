@@ -16,7 +16,7 @@ describe('check calendar', () => {
         formsPage.TypeTextInFields("test", "test", "test", "test", "test", "test")
         formsPage.ClearTextInFields()
         formsPage.AcceptAndSendForms()
-        cy.get('.input-group > .invalid-feedback').should('have.text', 'Please choose a username.')
+        cy.get('.input-group > .invalid-feedback').should('have.text', 'Required field')
       })
 
       it('Submit form without accepting consent', () => {
