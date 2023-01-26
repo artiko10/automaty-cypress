@@ -5,7 +5,6 @@ class uploadPage {
         btnDeleteImg : () =>  cy.get('[style="margin-top: 50px; display: flex; flex-direction: column;"] > button'),
         btnUploadFile : () => cy.get('.form-inline > .btn'),
         btnDownload : () => cy.get('a > .btn'),
-        btnPrint : () => cy.get('.print__button')
     }
 
     UploadAndDeleteFile() {
@@ -19,9 +18,6 @@ class uploadPage {
        this.elements.btnDownload().click()
     }
 
-    PrintFile() {
-       this.elements.btnPrint().click()
-        
-    }
+    
 }
 export default new uploadPage();

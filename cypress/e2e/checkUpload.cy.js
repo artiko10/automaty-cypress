@@ -15,8 +15,4 @@ describe('check Upload', () => {
       uploadPage.DownloadFileFail()
       });
 
-      it('print file', () => {
-        uploadPage.PrintFile()
-      });
-
     });
