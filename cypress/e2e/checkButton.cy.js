@@ -7,7 +7,7 @@ describe('check buttons', () => {
     buttonPage.clickNavButton()
   })
 
-  it('open popup', () => {
+  it('check popup', () => {
     buttonPage.clickOnBtnOpenPopup();
     buttonPage.elements.textOnPopup().should("contain", "Example popup");
     buttonPage.clickOnBtnConfirmPopup();
@@ -21,14 +21,13 @@ describe('check buttons', () => {
   it('check color button', () => {
     buttonPage.checkColorBtn();
     buttonPage.elements.btnCheckColor().should('have.css', 'background-color', 'rgb(13, 110, 253)')
-    
   })
 
   it('check button is disabled', () => {
     buttonPage.elements.btnDisabled().should('be.disabled')
   })
 
-  it('click go to home and come back', () => {
+  it('click go to home and check url', () => {
     buttonPage.clickOnButtonGoToHome()
     cy.url().should('eq', 'http://localhost:3000/' )
     buttonPage.clickNavButton()

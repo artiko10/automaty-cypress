@@ -19,18 +19,14 @@ elements ={
 
 clickOnBtnOpenPopup() {
    this.elements.btnOpenPopup().click()
-
 }
-
 
 clickOnBtnConfirmPopup() {
     this.elements.btnConfirmPopup().click()
-  
 }
 
 hoverOnTooltipBtn() {
-    this.elements.btnTooltip().trigger('mouseover')
-    
+    this.elements.btnTooltip().trigger('mouseover')  
 }
 
 checkColorBtn() {

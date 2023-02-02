@@ -17,14 +17,12 @@ class checkboxPage {
         this.elements.checboxBlack().check()
         this.elements.checboxBlack().should('be.checked');
         this.elements.checkboxWhite().should('not.be.checked');
-     
      }
 
      WhiteCheckBoxIsSelected() {
         this.elements.checkboxWhite().check()
         this.elements.checkboxWhite().should('be.checked');
         this.elements.checboxBlack().should('not.be.checked');
-     
      }
 
      findCheckboxSelected() {
